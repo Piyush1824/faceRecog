@@ -1,10 +1,3 @@
-# facial recognition attendance
-
-# pip install cmake
-# pip install face_recognition
-# pip install numpy
-# pip install opencv-python
-
 import face_recognition
 import cv2
 import numpy as np
@@ -13,18 +6,28 @@ from datetime import datetime
 
 video_capture = cv2.VideoCapture(0)
 
-# Load known images from stored images
-piyush_image = face_recognition.load_image_file("faces/Piyush.jpg")
-piyush_encoding = face_recognition.face_encodings(piyush_image)[0]
+# Load known images from the "faces" directory
+user1_image = face_recognition.load_image_file("faces/User1.jpg")
+user1_encoding = face_recognition.face_encodings(user1_image)[0]
 
-# ajit_image = face_recognition.load_image_file("faces/ajit.jpeg")
-# ajit_encoding = face_recognition.face_encodings(ajit_image)[0]
+# user2_image = face_recognition.load_image_file("faces/User2.jpg")
+# user2_encoding = face_recognition.face_encodings(user2_image)[0]
 
-# vighnesh_image = face_recognition.load_image_file("faces/vighnesh.jpeg")
-# vighnesh_encoding = face_recognition.face_encodings(vighnesh_image)[0]
+# user3_image = face_recognition.load_image_file("faces/User3.jpg")
+# user3_encoding = face_recognition.face_encodings(user3_image)[0]
 
-known_face_encodings = [piyush_encoding]    # ajit_encoding, vighnesh_encoding]
-known_face_names = ["piyush", "ajit", "vighnesh"]
+# Store known face encodings and names
+known_face_encodings = [
+    user1_encoding
+    # user2_encoding,
+    # user3_encoding
+]
+
+known_face_names = [
+    "User1",
+   # "User2",
+   # "User3"
+]
 
 # List of expected students
 students = known_face_names.copy()
